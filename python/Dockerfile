@@ -18,7 +18,6 @@ ENV PATH=${PATH}:/home/${RUN_AS}/.local/bin
 RUN python3 -m ensurepip
 RUN pip3 install rethinkdb
 
-ENTRYPOINT rethinkdb create -d ./ \
-&& rethinkdb --bind all --directory ./
+ENTRYPOINT rethinkdb --bind all --directory ./
 
 EXPOSE 28015 29015 8080

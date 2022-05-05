@@ -40,6 +40,5 @@ WORKDIR ${DATA_DIR}
 RUN adduser -D ${RUN_AS} \
 && chown -R ${RUN_AS}:${RUN_AS} ./
 USER ${RUN_AS}
-ENTRYPOINT rethinkdb create -d ./ \
-&& rethinkdb --bind all --directory ./
+ENTRYPOINT rethinkdb --bind all --directory ./
 EXPOSE 28015 29015 8080
