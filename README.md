@@ -12,6 +12,7 @@ Minimal rethinkdb docker images based on alpine linux.
 ### :python (~79MB)
 
 - Based on [python3.10-alpine3.15](https://hub.docker.com/_/python)
+- Includes the [rethinkdb python driver](https://rethinkdb.com/docs/install-drivers/python/)
 - Uses rethinkdb binary from [besworks/rethinkdb:latest](https://hub.docker.com/layers/208153988/besworks/rethinkdb/latest/images/sha256-06beb4966c6f8c8847d4ae268f1e36822af87038e90fc3bf9d65f693cbcfda9c?context=repo)
 
 ## Usage
