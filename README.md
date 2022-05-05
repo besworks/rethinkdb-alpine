@@ -27,3 +27,30 @@ docker logs -f rdbtest
 docker stop rdbtest
 ```
 
+## Using Volumes
+
+Dockerfile :
+
+```
+FROM besworks/rethinkdb:latest
+VOLUME  /data
+```
+
+docker-compose.yaml :
+
+```
+version: "3.9"
+services:
+  db:
+    build: .
+    ports:
+      - 8080:8080
+      - 28015:28015
+      - 29015:29015
+    volumes:
+      - ./data:/data
+```
+
+```
+sudo docker-compose up -d
+```
