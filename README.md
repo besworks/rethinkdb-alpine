@@ -6,25 +6,30 @@ Minimal rethinkdb docker images based on alpine linux.
 
 ### :latest (~36MB)
 
-- Based on [alpine:3.15](https://hub.docker.com/_/alpine)
-- Uses rethinkdb 2.4.2 built [from source](https://github.com/rethinkdb/rethinkdb)
+- Based on [alpine:3.16](https://hub.docker.com/_/alpine)
+- Uses rethinkdb 2.4.3 built [from source](https://github.com/rethinkdb/rethinkdb)
 
 ### :python (~79MB)
 
-- Based on [python:3.9-alpine3.15](https://hub.docker.com/_/python)
+- Based on [python:3.9-alpine3.16](https://hub.docker.com/_/python)
 - Includes the [rethinkdb python driver](https://rethinkdb.com/docs/install-drivers/python/)
-- Uses rethinkdb binary from [besworks/rethinkdb:latest](https://hub.docker.com/layers/208153988/besworks/rethinkdb/latest/images/sha256-06beb4966c6f8c8847d4ae268f1e36822af87038e90fc3bf9d65f693cbcfda9c?context=repo)
+- Uses rethinkdb binary from [besworks/rethinkdb:latest](https://hub.docker.com/r/besworks/rethinkdb)
+
+## Build
+
+```
+docker build -t besworks/rethinkdb:latest ./latest/
+```
+```
+docker build -t besworks/rethinkdb:python ./python/
+```
 
 ## Usage
 
 Building **:latest** from it's Dockerfile takes some time and produces a rather large intermediary build image (~3GB). It's recommended to pull this version [from docker hub](https://hub.docker.com/repository/docker/besworks/rethinkdb) unless you are forking this project for research/development.
 
 ```
-docker run -d --name=rdbtest -p 8080:8080 -p 28015:28015 -p 29015:29015 besworks/rethinkdb:latest
-
-docker logs -f rdbtest
-
-docker stop rdbtest
+docker run -p 8080:8080 -p 28015:28015 -p 29015:29015 besworks/rethinkdb:latest
 ```
 
 ## Using Volumes
@@ -33,10 +38,11 @@ Dockerfile :
 
 ```
 FROM besworks/rethinkdb:latest
-VOLUME  /data
+VOLUME /data
 ```
 
 docker-compose.yaml :
+
 
 ```
 version: "3.9"
@@ -49,8 +55,4 @@ services:
       - 29015:29015
     volumes:
       - ./data:/data
-```
-
-```
-sudo docker-compose up -d
 ```

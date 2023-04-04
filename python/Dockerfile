@@ -1,6 +1,6 @@
 FROM besworks/rethinkdb:latest AS rdb
 
-FROM python:3.9-alpine3.15 AS rdbtools
+FROM python:3.9-alpine3.16 AS rdbtools
 ARG RUN_DEPS="ca-certificates libstdc++ libgcc libcurl protobuf libexecinfo"
 ARG RUN_AS=rethinkdb
 ARG DATA_DIR=/data
