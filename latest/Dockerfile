@@ -1,7 +1,7 @@
 FROM alpine:3.16 AS base
 
 FROM base AS build
-ARG RETHINKDB_PACKAGE_VERSION=2.4.3
+ARG RETHINKDB_PACKAGE_VERSION=2.4.4
 ARG SOURCE_PATH=https://download.rethinkdb.com/repository/raw/dist/
 ARG SOURCE_BASE=rethinkdb-${RETHINKDB_PACKAGE_VERSION}
 ARG SOURCE_EXT=.tgz
