@@ -7,7 +7,7 @@ Minimal rethinkdb docker images based on alpine linux.
 ### :latest (~36MB)
 
 - Based on [alpine:3.16](https://hub.docker.com/_/alpine)
-- Uses rethinkdb 2.4.3 built [from source](https://github.com/rethinkdb/rethinkdb)
+- Uses rethinkdb 2.4.4 built [from source](https://github.com/rethinkdb/rethinkdb)
 
 ### :python (~79MB)
 
